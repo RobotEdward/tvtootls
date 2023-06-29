@@ -26,7 +26,7 @@ app.MapGet("/channel/{name}", (string name) =>
         client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", bearerToken);
         var hassresponse = client.PostAsync(apiUrl, body).GetAwaiter().GetResult();
     }
-    return Results.Redirect($"http://192.168.1.217/live/stream0", false, false);
+    return Results.Redirect(streamURI, false, false);
 });
 
 app.Run("http://localhost:3212");
